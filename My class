@@ -1,0 +1,121 @@
+#include<iostream>
+#include<string>
+#include<cstdlib>
+#include <windows.h>
+#include <iomanip>
+#include<algorithm>
+#include<cmath>
+using namespace std;
+class Member//创建基类
+{
+	public:
+		void member(string name1,int num1)
+		{
+			name=name1;
+			num=num1;
+		}
+	protected:
+		string name;
+		int num;	
+};
+class Supergirl:public Member//创建派生类Supergirl
+{
+	public:
+		void supergirl(int level1)
+		{
+			level=level1;
+		}
+		void getgirl()
+		{
+			cout<<"姓名："<<name<<endl; 
+				cout<<"编号："<<num<<endl; 
+			cout<<"漂亮等级："<<level<<endl;
+		}
+	protected:
+		int level;
+		
+};
+class Runingman:public Member//创建派生类
+{
+	public:
+		void runingman(int level1)
+		{
+			level=level1;
+		}
+		void getman()
+		{
+			cout<<"姓名："<<name<<endl; 
+				cout<<"编号："<<num<<endl; 
+			cout<<"帅气等级："<<level<<endl;
+		}
+	protected:
+		int level;
+};
+int main()
+{
+	string s;
+	loop:
+	cout<<"请选择你想创建的团队(Supergirl/Runingman)："<<endl;
+	cin>>s;
+	if(s=="Supergirl")
+	{
+		cout<<"请选择创建的人数："<<endl;
+		int n;
+		cin>>n;
+		Supergirl *a=new Supergirl[n];
+		for(int i=0;i<n;i++)
+		{
+			string na;
+			cout<<"请输入姓名："<<endl;
+			cin>>na;
+			int c;
+			cout<<"请输入序号："<<endl;
+			cin>>c;
+			int l;
+			cout<<"请输入漂亮程度："<<endl;
+			cin>>l;
+			a[i].member(na,c);
+			a[i].supergirl(l); 
+		} 
+		cout<<"您已成功创建"<<n<<"位人数的超女团"<<endl;
+		cout<<"她们是："<<endl;
+		for(int i=0;i<n;i++)
+		{
+			a[i].getgirl();
+		 } 
+	}
+	else if(s=="Runingman")
+	{
+		cout<<"请选择创建的人数："<<endl;
+		int n;
+		cin>>n;
+		Runingman *a=new Runingman[n];
+		for(int i=0;i<n;i++)
+		{
+			string na;
+			cout<<"请输入姓名："<<endl;
+			cin>>na;
+			int c;
+			cout<<"请输入序号："<<endl;
+			cin>>c;
+			int l;
+			cout<<"请输入帅气程度："<<endl;
+			cin>>l;
+			a[i].member(na,c);
+			a[i].runingman(l); 
+		} 
+		cout<<"您已成功创建"<<n<<"位人数的跑男团"<<endl;
+		cout<<"他们是："<<endl;
+		for(int i=0;i<n;i++)
+		{
+			a[i].getman();
+		 } 
+	}
+	else
+	{
+		cout<<"暂不支持自创偶像团体"<<endl;//返回重新创建
+		 
+		goto loop; 
+		}
+		return 0;	
+}
