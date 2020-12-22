@@ -6,7 +6,7 @@
 #include<algorithm>
 #include<cmath>
 using namespace std;
-class Member
+class Member//创建基类
 {
 	public:
 		void member(string name1,int num1)
@@ -18,7 +18,7 @@ class Member
 		string name;
 		int num;	
 };
-class Supergirl:public Member
+class Supergirl:public Member//创建派生类Supergirl
 {
 	public:
 		void supergirl(int level1)
@@ -35,7 +35,7 @@ class Supergirl:public Member
 		int level;
 		
 };
-class Runingman:public Member
+class Runingman:public Member//创建派生类
 {
 	public:
 		void runingman(int level1)
@@ -113,7 +113,7 @@ int main()
 	}
 	else
 	{
-		cout<<"暂不支持自创偶像团体"<<endl;
+		cout<<"暂不支持自创偶像团体"<<endl;//返回重新创建
 		 
 		goto loop; 
 		}
